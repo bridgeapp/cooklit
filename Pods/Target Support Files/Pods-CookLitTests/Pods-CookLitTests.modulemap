@@ -1,0 +1,6 @@
+framework module Pods_CookLitTests {
+  umbrella header "Pods-CookLitTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
