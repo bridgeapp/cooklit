@@ -15,7 +15,7 @@ class MapController: UIViewController {
 
     let initialLocation = CLLocation(latitude: 37.556578, longitude: -121.985858)
 
-    let regionRadius: CLLocationDistance = 16000
+    let regionRadius: CLLocationDistance = 4000
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
                                                                   regionRadius * 2.0, regionRadius * 2.0)

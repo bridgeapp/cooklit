@@ -13,13 +13,21 @@ class Profile: UIViewController {
     
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var nameView: UILabel!
+    //@IBOutlet weak var backImage: UIImageView!
+    @IBOutlet weak var food: UIImageView!
     
     var profileName = ""
     var profileImage = ""
     var profileEmail = ""
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        imgView.layer.cornerRadius = imgView.frame.size.width / 2;
+        imgView.clipsToBounds = true
+
+        var blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Light)
+        var blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = food.bounds
+        food.addSubview(blurEffectView)
             print("i came into the viewdidload method")
         DataService.dataService.CURRENT_USER_REF.observeEventType(FEventType.Value, withBlock: { snapshot in
             
@@ -48,14 +56,14 @@ class Profile: UIViewController {
     func setView(){
         let url = NSURL(string: profileImage)
         let data = NSData(contentsOfURL: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check
-        imgView.image = UIImage(data: data!)
+       // imgView.image = UIImage(data: data!)
         imgView.layer.cornerRadius = imgView.frame.size.width / 2;
         imgView.clipsToBounds = true
         
-        imgView.layer.borderWidth = 3.0
-        imgView.layer.borderColor = UIColor.whiteColor().CGColor
+        /*imgView.layer.borderWidth = 3.0
+        imgView.layer.borderColor = UIColor.whiteColor().CGColor*/
         
-        nameView.text = profileName
+        //nameView.text = profileName
     
     }
     override func didReceiveMemoryWarning() {

@@ -156,15 +156,16 @@ class CreateAccountViewController: UIViewController {
    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+
         
         // If we have the uid stored, the user is already logger in - no need to sign in again!
         
         if NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil && DataService.dataService.CURRENT_USER_REF.authData != nil {
-            print("already logged in")
+         
            self.performSegueWithIdentifier("loginToHome", sender: nil)
         }
     }
-    
+
     
     
     func loginErrorAlert(title: String, message: String) {
@@ -179,8 +180,9 @@ class CreateAccountViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view, typically from a nib.
-        
+       
         print("view did load");
     }
     
