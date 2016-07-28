@@ -48,7 +48,9 @@ class CreateAccountViewController: UIViewController {
                         
                         // Store the uid for future access - handy!
                         NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
-                        
+                        NSUserDefaults.standardUserDefaults().setValue(newUser["displayName"], forKey: "displayName")
+                        NSUserDefaults.standardUserDefaults().setValue(newUser["email"], forKey: "email")
+                        NSUserDefaults.standardUserDefaults().setValue(newUser["id"], forKey: "id")
                         // Enter the app.
                         self.performSegueWithIdentifier("loginToHome", sender: nil)
 
@@ -97,6 +99,7 @@ class CreateAccountViewController: UIViewController {
                     
                     // Store the uid for future access - handy!
                     NSUserDefaults.standardUserDefaults().setValue(result ["uid"], forKey: "uid")
+                    
                     
                     // Enter the app.
                       self.performSegueWithIdentifier("loginToHome", sender: nil)

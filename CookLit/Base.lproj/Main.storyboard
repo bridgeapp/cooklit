@@ -2658,16 +2658,22 @@
                                 <rect key="frame" x="10" y="349" width="124" height="30"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="startTimeEditing:" destination="FLM-u2-04R" eventType="editingDidBegin" id="uhE-wW-ZNj"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="End Time" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ocD-Ww-VqR">
                                 <rect key="frame" x="144" y="349" width="81" height="30"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="endTimeEditing:" destination="FLM-u2-04R" eventType="editingDidBegin" id="t2T-Sq-u3v"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="# of Servings" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OMB-At-Gqn">
                                 <rect key="frame" x="230" y="349" width="360" height="30"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description: " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hfm-Iw-cjw">
                                 <rect key="frame" x="10" y="309" width="580" height="30"/>
@@ -2679,8 +2685,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live Streaming: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1h-E5-tDo">
-                                <rect key="frame" x="10" y="439" width="115" height="22"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Storyboard: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1h-E5-tDo">
+                                <rect key="frame" x="37" y="439" width="88" height="22"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="16"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -2691,11 +2697,15 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="30x-1K-91A">
                                 <rect key="frame" x="0.0" y="475" width="600" height="125"/>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Tap to add Images" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUf-Jc-5fp">
-                                <rect key="frame" x="171" y="164" width="150" height="25"/>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Add Banner Image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JUf-Jc-5fp">
+                                <rect key="frame" x="169" y="164" width="152" height="25"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="C0U-xD-YNu" appends="YES" id="wGw-Yd-tx8"/>
+                                </connections>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2741,15 +2751,31 @@
                                 <action selector="cancel:" destination="FLM-u2-04R" id="2Bf-S5-BZ7"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Submit" id="iF1-q5-w1K"/>
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="iF1-q5-w1K">
+                            <connections>
+                                <action selector="geocode:" destination="FLM-u2-04R" id="lMf-CU-ooJ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="bigImage" destination="JtJ-ub-UzQ" id="POT-nl-ink"/>
+                        <outlet property="desc" destination="Hfm-Iw-cjw" id="6SW-Nx-ifS"/>
+                        <outlet property="endTime" destination="ocD-Ww-VqR" id="wDx-Zk-GwO"/>
+                        <outlet property="geocode" destination="iF1-q5-w1K" id="bf6-e7-Jfe"/>
+                        <outlet property="location" destination="lha-jZ-wCu" id="ul0-Ti-glt"/>
                         <outlet property="myMap" destination="30x-1K-91A" id="Uh5-tF-PtT"/>
+                        <outlet property="nameOfDish" destination="CEg-FP-xMK" id="2X8-Dn-s30"/>
                         <outlet property="profileImage" destination="Uit-Nu-slb" id="ftO-AF-yue"/>
+                        <outlet property="servings" destination="OMB-At-Gqn" id="u64-l5-PYc"/>
+                        <outlet property="startTime" destination="oxm-6J-aze" id="sW0-Bj-SpI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IeV-Tw-Kve" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="C0U-xD-YNu">
+                    <connections>
+                        <action selector="addBannerImage:" destination="FLM-u2-04R" id="255-jR-G0Y"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="6929" y="1040"/>
         </scene>
